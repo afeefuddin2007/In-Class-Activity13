@@ -17,7 +17,7 @@ A Flutter application demonstrating secure email and password authentication usi
 * Dart SDK
 * Firebase CLI installed and logged in (`firebase login`)
 * FlutterFire CLI installed (`dart pub global activate flutterfire_cli`)
-* An Android emulator or a physical Android device for testing.
+* Google Chrome for running the web app, and/or an Android emulator or physical Android device.
 
 ## Required Firebase Configuration & Setup
 
@@ -54,17 +54,31 @@ flutter pub get
 
 *Note: The generated Firebase configuration files and any service-account credentials are excluded from version control. Never commit service-account credentials to a public repository.*
 
-## How to Run and Test the App
+## Run the App
 
-1. Ensure your Android emulator is running or a physical device is connected.
-2. Build and launch the application:
+After configuring Firebase and installing dependencies, run the web app in Chrome:
+
 ```bash
-flutter run
-
+flutter run -d chrome
 ```
 
+To run on a connected Android device or emulator:
 
-3. **Recommended Test Flow:**
+```bash
+flutter run
+```
+
+To build a release APK:
+
+```bash
+flutter build apk --release
+```
+
+The APK is written to `build/app/outputs/flutter-apk/app-release.apk`.
+
+## Test the App
+
+**Recommended test flow:**
 * **Validation:** Attempt to sign in with an invalid email format and a password under 6 characters to verify client-side validation errors.
 * **Registration:** Create a new account with a valid email and password. Verify the app routes you to the Protected Profile.
 * **Profile Access:** Confirm the profile screen correctly displays the registered email address.
